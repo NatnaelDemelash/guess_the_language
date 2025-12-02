@@ -2,11 +2,10 @@
 
 import { MapContainer, TileLayer } from "react-leaflet";
 import { LatLngExpression } from "leaflet";
-import "leaflet/dist/leaflet.css"; // important so the map displays correctly
+
+const position: LatLngExpression = [20, 0];
 
 export default function WorldMapClient() {
-  const position: LatLngExpression = [20, 0];
-
   return (
     <div className="w-screen h-screen fixed inset-0 z-50">
       <MapContainer
@@ -22,8 +21,9 @@ export default function WorldMapClient() {
         style={{ height: "100%", width: "100%" }}
       >
         <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution="&copy; OpenStreetMap contributors"
+          // English-label OSM-style tiles (replace with your real key)
+          url={`https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=${process.env.NEXT_PUBLIC_MAPTILER_KEY}`}
+          attribution="&copy; OpenStreetMap contributors & MapTiler"
         />
       </MapContainer>
     </div>
