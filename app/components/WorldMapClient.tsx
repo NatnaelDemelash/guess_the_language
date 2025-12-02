@@ -10,7 +10,7 @@ export default function WorldMapClient() {
     <div className="w-screen h-screen fixed inset-0 z-50">
       <MapContainer
         center={position}
-        zoom={2}
+        zoom={3}
         minZoom={2}
         maxBounds={[
           [-85, -180],
@@ -22,7 +22,7 @@ export default function WorldMapClient() {
       >
         <TileLayer
           // English-label OSM-style tiles (replace with your real key)
-          url={`https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=${process.env.NEXT_PUBLIC_MAPTILER_KEY}`}
+          url={`https://api.maptiler.com/maps/dataviz/256/{z}/{x}/{y}.png?key=${process.env.NEXT_PUBLIC_MAPTILER_KEY}`}
           attribution="&copy; OpenStreetMap contributors & MapTiler"
         />
       </MapContainer>
